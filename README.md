@@ -8,57 +8,57 @@ Initial Setup
 
 For more information regarding setup, see {Adam Anderson's blog post}[http://asanderson.org/posts/2013/06/03/bootstrapping-angular-rails-part-1.html] and Michael Hartl's {Ruby on Rails Tutorial}[http://ruby.railstutorial.org/ruby-on-rails-tutorial-book?version=4.0]
 
-1. Get the latest version of RVM
+#### Get the latest version of RVM
 
     $ rvm get stable
 
-2. Get the latest version of Ruby, for example:
+#### Get the latest version of Ruby, for example:
 
     rvm install ruby-2.0.0-p247
 
-3. Set rvm default to latest version of ruby
+#### Set rvm default to latest version of ruby
 
     $ rvm --default use 2.0.0-p247
 
-4. Install the latest version of Rails
+#### Install the latest version of Rails
 
     $ gem install rails --version 4.0.0
 
-5. Create a default gemset to use with the latest version 
+#### Create a default gemset to use with the latest version 
 
     $ rvm use 2.0.0-p247@gemset --create --default
 
-6. Check Postgres version 
+#### Check Postgres version 
 
     $ psql --version
 
-7. Install latest Postgres  (skip if you've done this before)
+#### Install latest Postgres  (skip if you've done this before)
 
     $ brew install postgresql
 
-8. Create database (skip if already done)
+#### Create database (skip if already done)
 
     $ initdb /usr/local/var/postgres
 
-9. Set up an agent to start up the server
+#### Set up an agent to start up the server
 
     $ mkdir -p ~/Library/LaunchAgents
     $ cp /usr/local/Cellar/postgresql/9.1.3/homebrew.mxcl.postgresql.plist ~/Library/LaunchAgents
     $ launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
 
-10. Check it's installed in /usr/local/bin/psql (or somewhere similar) 
+#### Check it's installed in /usr/local/bin/psql (or somewhere similar) 
 
     $ which psql
 
-11. New Rails App
+#### New Rails App
 
     $ rails new blog --skip-test-unit --database=postgresql
 
-then go into
+#### then go into
 
     /config/database.yml
 
-it should look like the following (where username matches your username:)
+#### it should look like the following (where username matches your username:)
 
     development:
       adapter: postgresql
@@ -79,23 +79,23 @@ it should look like the following (where username matches your username:)
       password:
 
 
-12. Next, create the initial database with the rake db:create command in the console:
+#### Next, create the initial database with the rake db:create command in the console:
 
     $ bundle exec rake db:create
     $ rails s
 
-You should be up and running at: 
+#### Should be up and running at: 
 
     http://localhost:3000/
 
-13. Disable Turbolinks by removing +data-turbolinks-track+ from **app/views/layouts/application.html.erb** and +//= require turbolinks+ from **app/assets/javascripts/application.js**
+#### Disable Turbolinks by removing +data-turbolinks-track+ from **app/views/layouts/application.html.erb** and +//= require turbolinks+ from **app/assets/javascripts/application.js**
 
 
-14. Add the files listed to the Gemfile (see Gemfile)
+#### Add the files listed to the Gemfile (see Gemfile)
 
-15. Set up *.ruby-gemset* and **.ruby-version** files with **name_your_gemset** and the latest stable version of ruby (something like **2.0.0-p247**), respectively.
+#### Set up *.ruby-gemset* and **.ruby-version** files with **name_your_gemset** and the latest stable version of ruby (something like **2.0.0-p247**), respectively.
 
-16. Dynamically generate a secret token in *config/initializers/secret_token.rb*. See the [*Ruby on Rails Tutorial*](http://ruby.railstutorial.org/book/ruby-on-rails-tutorial#cha-static_pages) for more info:
+#### Dynamically generate a secret token in *config/initializers/secret_token.rb*. See the [*Ruby on Rails Tutorial*](http://ruby.railstutorial.org/book/ruby-on-rails-tutorial#cha-static_pages) for more info:
 
     require 'securerandom'
 
@@ -114,9 +114,9 @@ You should be up and running at:
 
     Rangular::Application.config.secret_key_base = secure_token
 
-note: make sure to create a .secret file at the root of your rails application and add it to the .gitignore file so that it isn't included in your public repository.
+#### note: make sure to create a .secret file at the root of your rails application and add it to the .gitignore file so that it isn't included in your public repository.
 
-17. Make our initial commit:
+#### Make our initial commit:
 
     $ git init
     $ git add .
@@ -134,14 +134,14 @@ Now deploy to heroku:
     $ git push heroku master
     $ heroku run rake db:migrate
 
-18. Install Gems
+#### Install Gems
 
-### Install RSpec, Figaro 
+#### Install RSpec, Figaro 
 
     $ rails generate rspec:install
     $ rails generate figaro:install  
 
-#### Install Angular
+##### Install Angular
 
 Download AngularJS Stable, unzip it, place it into +vendor/assets/javascripts+ and add it as a dependency in **app/assets/javascripts/application.js** with +//= require angular+.  Also add requires for bootstrap and underscore and remove the +require_tree+ statement.
 
