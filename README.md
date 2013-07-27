@@ -163,6 +163,6 @@ Installing Gems
 
 3. Install Bootstrap - Follow [*Step05: Installing and Setting Up Bootstrap from the tutorial*](https://github.com/levbrie/rangular/wiki/Step05:-Installing-and-Setting-Up-Bootstrap)
 
-4. Install SimpleForm:
+4. Install SimpleForm: Make sure you have `gem 'simple_form'` in your Gemfile (if not, as always, add it and bundle).  Then on the terminal run `$ rails g simple_form:install --bootstrap` (or leave out the optional bootstrap argument if you want simple_form to generate forms without including the default bootstrap theming).
 
 
