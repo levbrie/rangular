@@ -109,7 +109,7 @@ You should now be up and running at (http://localhost:3000/)
 
         Rangular::Application.config.secret_key_base = secure_token
         ````
-        
+
     note: make sure to create a .secret file at the root of your rails application and add it to the .gitignore file so that it isn't included in your public repository.
 
 18. Make our initial commit:
@@ -135,8 +135,19 @@ You should now be up and running at (http://localhost:3000/)
         $ git push heroku master
         $ heroku run rake db:migrate
 
+Optional Creation of Static Pages - see [*The Rails Tutoral*](http://ruby.railstutorial.org/book/ruby-on-rails-tutorial#sec-first_tests)
+--------------------------------------------------------------------------------
+
+*Note: This static page will serve as the home page, so you will have to create a root route if you choose to skip this section*
+
+1. Checkout a new branch: `$ git checkout -b static-pages`
+
+2. Generate a StaticPages controller with a home action and no test framework:
+
+        $ rails generate controller StaticPages home --no-test-framework
 Installing Gems
 --------------------------------------------------------------------------------
+
 
 1. Install RSpec, Figaro 
 
