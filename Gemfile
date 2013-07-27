@@ -6,9 +6,9 @@ gem 'pg'															# Use postgresql as the database for Active Record
 
 # SECURITY, ENCRYPTION, AUTHENTICATION, AUTHORIZATION
 gem 'bcrypt-ruby'					 						# adds state-of-the-art encryption hash function
-gem 'devise'													# authentication
 gem 'simple_form'											# form generation built to work with devise
-gem 'cancan'
+gem 'devise'													# authentication
+gem 'cancan'													# authorization lib restricting user access to resources
 gem 'rolify'													# for easy role creation
 
 # TEMPLATES
