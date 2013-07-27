@@ -19,6 +19,7 @@ en:
     mailer:
       confirmation_instructions:
         subject: "Confirmation instructions"
+        user_subject: "Thanks for signing up.  Please click on the link below to confirm."
       reset_password_instructions:
         subject: "Reset password instructions"
       unlock_instructions:

@@ -71,7 +71,8 @@ gem 'therubyracer', :require => 'v8' 	# See https://github.com/sstephenson/execj
 																			# Evaluate JavaScript from within Ruby
 																			# Embed your Ruby objects into the JavaScript world
 																			# Manipulate JavaScript objects and call JavaScript functions from Ruby
-
+# EMAIL
+gem 'mandrill-api'
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.

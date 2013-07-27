@@ -1,0 +1,15 @@
+!!!
+%html
+  %head
+    %title Rangular
+    = render 'shared/shim'
+    = stylesheet_link_tag    "application", media: "all"
+    = javascript_include_tag "application"
+    = csrf_meta_tags
+    %meta{:content => "width=device-width, initial-scale=1.0", :name => "viewport"}/
+  %body{:class => "#{controller_name} #{action_name}"}
+    = render 'layouts/header'
+    = render 'shared/modal_contact'
+    .container-fluid
+      = render 'shared/errors'
+      = yield

@@ -136,7 +136,7 @@ You should now be up and running at (http://localhost:3000/)
         $ heroku run rake db:migrate
 
 Optional Creation of Static Pages 
---------------------------------------------------------------------------------
+---------------------------------
 
 *see [*The Rails Tutoral*](http://ruby.railstutorial.org/book/ruby-on-rails-tutorial#sec-first_tests)*
 *Note: This static page will serve as the home page, so you will have to create a root route if you choose to skip this section*
@@ -148,7 +148,7 @@ Optional Creation of Static Pages
         $ rails generate controller StaticPages home --no-test-framework
 
 Installing Gems
---------------------------------------------------------------------------------
+---------------
 
 
 1. Install RSpec (should already be in your Gemfile)
@@ -165,7 +165,64 @@ Installing Gems
 
 4. Install SimpleForm: Make sure you have `gem 'simple_form'` in your Gemfile (if not, as always, add it and bundle).  Then on the terminal run `$ rails g simple_form:install --bootstrap` (or leave out the optional bootstrap argument if you want simple_form to generate forms without including the default bootstrap theming).  We'll try out the themes and test functionality once we generate our user model.
 
-5. Install Devise: Make sure you have `gem 'devise'` in your Gemfile.  From terminal, `$ rails g devise:install`, then set up the following options:
+5. Install Devise: Follow [*Step07: Adding Devise*](https://github.com/levbrie/rangular/wiki/Step07:-Adding-Devise) in the wiki.
+
+6. Install Figaro: Make sure you have `gem 'figaro'` in your Gemfile, then `rails g figaro:install` and simply follow the commented out examples to create private environment variables, i.e. `PUSHER_APP_ID: "2954"`.  This can then be accessed throughout the app using `ENV["PUSHER_APP_ID"]`, and key/value pairs can be safely set using `Pusher.app_id = ENV["PUSHER_APP_ID"]` in the appropriate configuration file.  Additional documentation is available for using a rake task to configure Heroku from the same application.yml file, but this hasn't worked for me so we simply add to Heroku using a single line of key/value pairs.
+
+## Setup Email in Development and Production
+--------------------------------------------
+
+
+1. To set up action mailer for local development and testing using gmail, and to tell devise to actuually perform deliveries, add the following to `config/environments/development.rb`:
+
+    ```ruby
+    # devise default mailer options
+    config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+    config.action_mailer.perform_deliveries = true
+    config.action_mailer.default :charset => "utf-8"
+    
+    config.action_mailer.smtp_settings = {
+      address: "smtp.gmail.com",
+      port: 587,
+      domain: "yourdomain.com",
+      authentication: "plain",
+      enable_starttls_auto: true,
+      user_name: ENV["GMAIL_USERNAME"],
+      password: ENV["GMAIL_PASSWORD"]
+    }
+    ```
+  To test emails using Letter Opener instead, so that the email opens in the browser and is not delivered, include `gem 'letter_opener'` in your Gemfile under `:development` and add `config.action_mailer.delivery_method = :letter_opener` to `config/environments/development.rb`
+
+2. Adding Mandrill: First [*sign up*](http://mandrill.com/).  Then add `gem 'mandrill-api'` to your Gemfile.  
+
+  * The easiest way to add Mandrill in production is through [*Heroku's built-in add-on*](https://devcenter.heroku.com/articles/mandrill) using `$ heroku addons:add mandrill:starter`.
+
+  * Next run `$ heroku config:get MANDRILL_APIKEY` to confirm the environment now has the Mandrill API key set.  
+
+  * Locally replicate the config vars: `$ heroku config -s | grep MANDRILL_APIKEY >> .env` followed by `$ more .env` (which should not output your MANDRILL_APIKEY as a key/value pair)
+
+  * Make sure to exclude the .env file from source control - `echo .env >> .gitignore`. 
+
+  * You'll find your username in the heroku add-ons section for your app, where you can also adjust your settings.  You can add that username to your .env or application.yml file for safe keeping and quick reference if you like but it will already be configured on heroku and you can access it from the command line using `$ heroku config`. 
+
+  * You can now add:
+
+    ```ruby
+    # combination of Heroku settings - https://devcenter.heroku.com/articles/mandrill
+    # and Mandrill docs 
+    config.action_mailer.smtp_settings = {
+      :address   => "smtp.mandrillapp.com",
+      :port      => '587',                    # ports 587 and 2525 are also supported with STARTTLS
+      :enable_starttls_auto => true,          # detects and uses STARTTLS
+      :user_name => ENV['MANDRILL_USERNAME'],
+      :password  => ENV['MANDRILL_APIKEY'],   # SMTP password is any valid API key
+      :authentication => :plain,              # Mandrill supports 'plain' or 'login'
+    }
+    ```
+
+  to `config/environments/production.rb`
+
+
 
   
 
