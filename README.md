@@ -155,7 +155,7 @@ Installing Gems
 
         $ rails generate rspec:install
 
-    If you wish to create tests for see "first-test" in the wiki
+    If you wish to create tests for see "Step04: First Static Page Test" in the wiki
 
 2. Before installing additional gems, make sure that your server is up and working and you can visit the home page (this is unlikely)
 
