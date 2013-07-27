@@ -88,7 +88,7 @@ For more information regarding setup, see {Adam Anderson's blog post}[http://asa
 
     http://localhost:3000/
 
-#### Disable Turbolinks by removing +data-turbolinks-track+ from **app/views/layouts/application.html.erb** and +//= require turbolinks+ from **app/assets/javascripts/application.js**
+Disable Turbolinks by removing +data-turbolinks-track+ from **app/views/layouts/application.html.erb** and +//= require turbolinks+ from **app/assets/javascripts/application.js**
 
 
 #### Add the files listed to the Gemfile (see Gemfile)
