@@ -155,6 +155,13 @@ Installing Gems
 
         $ rails generate rspec:install
 
+    If you wish to create tests for see "first-test" in the wiki
+
+2. Before installing additional gems, make sure that your server is up and working and you can visit the home page (this is unlikely)
+
+    If you can't, first run `$ bundle install` again to install all current gems in the Gemfile.  Now run `$ bundle outdated` to find outdated gems and update those gems, using github urls if necessary. 
+
+
 2. Install Figaro (for easy management of sensitive information):
 
         $ rails generate figaro:install  

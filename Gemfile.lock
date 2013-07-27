@@ -162,9 +162,6 @@ GEM
     nokogiri (1.6.0)
       mini_portile (~> 0.5.0)
     orm_adapter (0.4.0)
-    paper_trail (1.6.4)
-      actionpack (>= 2.3)
-      activerecord (>= 2.3)
     paperclip (3.5.0)
       activemodel (>= 3.0.0)
       activesupport (>= 3.0.0)
@@ -301,7 +298,6 @@ DEPENDENCIES
   jquery-ui-rails
   launchy
   meta_request
-  paper_trail
   paperclip
   pg
   railroady

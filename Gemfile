@@ -2,14 +2,14 @@ source 'https://rubygems.org'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
-gem 'pg'																# Use postgresql as the database for Active Record
+gem 'pg'															# Use postgresql as the database for Active Record
 
 # SECURITY, ENCRYPTION, AUTHENTICATION, AUTHORIZATION
-gem 'bcrypt-ruby'					 				# adds state-of-the-art encryption hash function
-gem 'devise'											# authentication
-gem 'simple_form' 								# form generation built to work with devise
+gem 'bcrypt-ruby'					 						# adds state-of-the-art encryption hash function
+gem 'devise'													# authentication
+gem 'simple_form'											# form generation built to work with devise
 gem 'cancan'
-gem 'rolify'											# for easy role creation
+gem 'rolify'													# for easy role creation
 
 # TEMPLATES
 gem 'haml'
@@ -52,24 +52,25 @@ gem 'skrollr-rails'
 
 # UPLOADS, S3, WYSIWYG
 gem 'paperclip'
-gem 'aws-sdk'								# Amazone AWS for storing files uploaded with paperclip
+gem 'aws-sdk'													# Amazone AWS for storing files uploaded with paperclip
 gem 'cocaine'
-gem 'ckeditor'							# more full-featured wysiwyg
+gem 'ckeditor'												# more full-featured wysiwyg
 
 # YAML CONFIG FILES SEPARATE FROM APP
-gem 'figaro'								# for keeping private stuff private (ENV vars)
+gem 'figaro'													# for keeping private stuff private (ENV vars)
 
 # APIS
 gem 'jbuilder', '~> 1.2'							# Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 
 # ADDONS
-gem 'paper_trail' 										# auditing for models
+# gem 'paper_trail', github: 'airblade/paper_trail', branch: 'rails4'	# auditing for models
 
-gem 'therubyracer', platforms: :ruby 	# See https://github.com/sstephenson/execjs#readme 
+gem 'therubyracer', :require => 'v8' 	# See https://github.com/sstephenson/execjs#readme 
 																			# for more supported runtimes
 																			# Evaluate JavaScript from within Ruby
 																			# Embed your Ruby objects into the JavaScript world
 																			# Manipulate JavaScript objects and call JavaScript functions from Ruby
+
 
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
