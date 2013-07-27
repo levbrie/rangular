@@ -91,6 +91,7 @@ You should now be up and running at (http://localhost:3000/)
 
 17. Dynamically generate a secret token in *config/initializers/secret_token.rb*. See the [*Ruby on Rails Tutorial*](http://ruby.railstutorial.org/book/ruby-on-rails-tutorial#cha-static_pages) for more info:
 
+        ````ruby
         require 'securerandom'
 
         def secure_token
@@ -107,7 +108,8 @@ You should now be up and running at (http://localhost:3000/)
         end
 
         Rangular::Application.config.secret_key_base = secure_token
-
+        ````
+        
     note: make sure to create a .secret file at the root of your rails application and add it to the .gitignore file so that it isn't included in your public repository.
 
 18. Make our initial commit:
@@ -125,7 +127,7 @@ You should now be up and running at (http://localhost:3000/)
         $ git remote add origin https://github.com/<username>/rangular.git
         $ git push -u origin master
 
-    Note: You can find the current application at (https://github.com/levbrie/rangular).
+    *Note: You can find the current application at (https://github.com/levbrie/rangular).*
 
 21. Now deploy to heroku:
 
