@@ -161,7 +161,7 @@ Installing Gems
 
     If you can't, first run `$ bundle install` again to install all current gems in the Gemfile.  Now run `$ bundle outdated` to find outdated gems and update those gems, using github urls if necessary. 
 
-3. Install Bootstrap - Follow Step05: Installing and Setting Up Bootstrap from the tutorial
+3. Install Bootstrap - Follow [*Step05: Installing and Setting Up Bootstrap from the tutorial*](https://github.com/levbrie/rangular/wiki/Step05:-Installing-and-Setting-Up-Bootstrap)
 
 4. Install SimpleForm:
 
