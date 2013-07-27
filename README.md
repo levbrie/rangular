@@ -222,6 +222,7 @@ Installing Gems
 
   to `config/environments/production.rb`
 
+3. If you followed the optional step in the Devise setup to generate Devise's views, you'll find the mailer templates in the `views/users/mailer` directory.  Messages are defined, in `config/locales/devise.en.yml`.  Taken together, you can do a lot of customization just in those two places. 
 
 
   

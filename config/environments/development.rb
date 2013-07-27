@@ -32,6 +32,9 @@ Rangular::Application.configure do
   config.action_mailer.perform_deliveries = true
   config.action_mailer.default :charset => "utf-8"
 
+  # comment the following line out to actually deliver emails in development
+  config.action_mailer.delivery_method = :letter_opener
+
   config.action_mailer.smtp_settings = {
     address: "smtp.gmail.com",
     port: 587,

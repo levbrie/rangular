@@ -30,4 +30,7 @@ doc/
 # Ignore application configuration
 /config/application.yml
 /config/.heroku_config
+# version of html email for private use or for distributing commercially later
+# based on campaign monitor
+/app/views/mailer/confirmation_instructions-private.html.erb
 .env
