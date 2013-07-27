@@ -1,64 +1,64 @@
-# Rails Framework for Integrating Rails with AngularJS
+## Rails Framework for Integrating Rails with AngularJS
 
 This is a framework designed for building a full-fledged Rails app together with a versioned, RESTful API for communicating with a complete, scalable, modular AngularJS application.  The code can be found at the [*Rangular Framework*](http://github.com/levbrie/rangular)
 by [Lev Brie](http://github.com/levbrie).
 
-== Initial Setup 
------
+Initial Setup 
+-------------
 
 For more information regarding setup, see {Adam Anderson's blog post}[http://asanderson.org/posts/2013/06/03/bootstrapping-angular-rails-part-1.html] and Michael Hartl's {Ruby on Rails Tutorial}[http://ruby.railstutorial.org/ruby-on-rails-tutorial-book?version=4.0]
 
-### Get the latest version of RVM
+1. Get the latest version of RVM
 
     $ rvm get stable
 
-### Get the latest version of Ruby, for example:
+2. Get the latest version of Ruby, for example:
 
     rvm install ruby-2.0.0-p247
 
-### Set rvm default to latest version of ruby
+3. Set rvm default to latest version of ruby
 
     $ rvm --default use 2.0.0-p247
 
-### Install the latest version of Rails
+4. Install the latest version of Rails
 
     $ gem install rails --version 4.0.0
 
-### Create a default gemset to use with the latest version 
+5. Create a default gemset to use with the latest version 
 
     $ rvm use 2.0.0-p247@gemset --create --default
 
-### Check Postgres version 
+6. Check Postgres version 
 
     $ psql --version
 
-### Install latest Postgres  (skip if you've done this before)
+7. Install latest Postgres  (skip if you've done this before)
 
     $ brew install postgresql
 
-### Create database (skip if already done)
+8. Create database (skip if already done)
 
     $ initdb /usr/local/var/postgres
 
-### Set up an agent to start up the server
+9. Set up an agent to start up the server
 
     $ mkdir -p ~/Library/LaunchAgents
     $ cp /usr/local/Cellar/postgresql/9.1.3/homebrew.mxcl.postgresql.plist ~/Library/LaunchAgents
     $ launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
 
-### Check it's installed in /usr/local/bin/psql (or somewhere similar) 
+10. Check it's installed in /usr/local/bin/psql (or somewhere similar) 
 
     $ which psql
 
-### New Rails App
+11. New Rails App
 
     $ rails new blog --skip-test-unit --database=postgresql
 
-### then go into
+then go into
 
     /config/database.yml
 
-### it should look like the following (where username matches your username:)
+it should look like the following (where username matches your username:)
 
     development:
       adapter: postgresql
@@ -79,23 +79,23 @@ For more information regarding setup, see {Adam Anderson's blog post}[http://asa
       password:
 
 
-### Next, create the initial database with the rake db:create command in the console:
+12. Next, create the initial database with the rake db:create command in the console:
 
     $ bundle exec rake db:create
     $ rails s
 
-### Should be up and running at: 
+You should be up and running at: 
 
     http://localhost:3000/
 
-### Disable Turbolinks by removing +data-turbolinks-track+ from **app/views/layouts/application.html.erb** and +//= require turbolinks+ from **app/assets/javascripts/application.js**
+13. Disable Turbolinks by removing +data-turbolinks-track+ from **app/views/layouts/application.html.erb** and +//= require turbolinks+ from **app/assets/javascripts/application.js**
 
 
-### Add the files listed to the Gemfile (see Gemfile)
+14. Add the files listed to the Gemfile (see Gemfile)
 
-### Set up *.ruby-gemset* and **.ruby-version** files with **name_your_gemset** and the latest stable version of ruby (something like **2.0.0-p247**), respectively.
+15. Set up *.ruby-gemset* and **.ruby-version** files with **name_your_gemset** and the latest stable version of ruby (something like **2.0.0-p247**), respectively.
 
-### Dynamically generate a secret token in *config/initializers/secret_token.rb*. See the [*Ruby on Rails Tutorial*](http://ruby.railstutorial.org/book/ruby-on-rails-tutorial#cha-static_pages) for more info:
+16. Dynamically generate a secret token in *config/initializers/secret_token.rb*. See the [*Ruby on Rails Tutorial*](http://ruby.railstutorial.org/book/ruby-on-rails-tutorial#cha-static_pages) for more info:
 
     require 'securerandom'
 
@@ -114,15 +114,27 @@ For more information regarding setup, see {Adam Anderson's blog post}[http://asa
 
     Rangular::Application.config.secret_key_base = secure_token
 
-### note: make sure to create a .secret file at the root of your rails application and add it to the .gitignore file so that it isn't included in your public repository.
+note: make sure to create a .secret file at the root of your rails application and add it to the .gitignore file so that it isn't included in your public repository.
 
-### Make our initial commit:
+17. Make our initial commit:
 
     $ git init
     $ git add .
     $ git commit -m "Initial commit"
 
-### Install Gems
+[*Create a new repo on Github*](https://github.com/new):
+
+    $ git remote add origin https://github.com/<username>/rangular.git
+    $ git push -u origin master
+
+You can find the current application at (https://github.com/levbrie/rangular).
+Now deploy to heroku:
+
+    $ heroku create
+    $ git push heroku master
+    $ heroku run rake db:migrate
+
+18. Install Gems
 
 ### Install RSpec, Figaro 
 
