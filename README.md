@@ -8,83 +8,79 @@ Initial Setup
 
 For more information regarding setup, see {Adam Anderson's blog post}[http://asanderson.org/posts/2013/06/03/bootstrapping-angular-rails-part-1.html] and Michael Hartl's {Ruby on Rails Tutorial}[http://ruby.railstutorial.org/ruby-on-rails-tutorial-book?version=4.0]
 
-#### Get the latest version of RVM
+1. Get the latest version of RVM
 
-    $ rvm get stable
+        $ rvm get stable
 
-#### Get the latest version of Ruby, for example:
+2. Get the latest version of Ruby, for example:
 
-    rvm install ruby-2.0.0-p247
+        $ rvm install ruby-2.0.0-p247
 
-#### Set rvm default to latest version of ruby
+3. Set rvm default to latest version of ruby
 
-    $ rvm --default use 2.0.0-p247
+        $ rvm --default use 2.0.0-p247
 
-#### Install the latest version of Rails
+4. Install the latest version of Rails
 
-    $ gem install rails --version 4.0.0
+        $ gem install rails --version 4.0.0
 
-#### Create a default gemset to use with the latest version 
+5. Create a default gemset to use with the latest version 
 
-    $ rvm use 2.0.0-p247@gemset --create --default
+        $ rvm use 2.0.0-p247@gemset --create --default
 
-#### Check Postgres version 
+6. Check Postgres version 
 
-    $ psql --version
+        $ psql --version
 
-#### Install latest Postgres  (skip if you've done this before)
+7. Install latest Postgres  (skip if you've done this before)
 
-    $ brew install postgresql
+        $ brew install postgresql
 
-#### Create database (skip if already done)
+8. Create database (skip if already done)
 
-    $ initdb /usr/local/var/postgres
+        $ initdb /usr/local/var/postgres
 
-#### Set up an agent to start up the server
+9. Set up an agent to start up the server
 
-    $ mkdir -p ~/Library/LaunchAgents
-    $ cp /usr/local/Cellar/postgresql/9.1.3/homebrew.mxcl.postgresql.plist ~/Library/LaunchAgents
-    $ launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
+        $ mkdir -p ~/Library/LaunchAgents
+        $ cp /usr/local/Cellar/postgresql/9.1.3/homebrew.mxcl.postgresql.plist ~/Library/LaunchAgents
+        $ launchctl load -w ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist
 
-#### Check it's installed in /usr/local/bin/psql (or somewhere similar) 
+10. Check it's installed in /usr/local/bin/psql (or somewhere similar) 
 
-    $ which psql
+        $ which psql
 
-#### New Rails App
+11. New Rails App
 
-    $ rails new blog --skip-test-unit --database=postgresql
+        $ rails new blog --skip-test-unit --database=postgresql
 
-#### then go into
+12. Then go into `/config/database.yml` and make sure it looks like the following (where username matches your username):
 
-    /config/database.yml
+        development:
+          adapter: postgresql
+          encoding: unicode
+          database: blog_development
+          pool: 5
+          username: pguser
+          password:
 
-#### it should look like the following (where username matches your username:)
+        # ...
 
-    development:
-      adapter: postgresql
-      encoding: unicode
-      database: blog_development
-      pool: 5
-      username: pguser
-      password:
-
-    # ...
-
-    test:
-      adapter: postgresql
-      encoding: unicode
-      database: blog_test
-      pool: 5
-      username: pguser
-      password:
+        test:
+          adapter: postgresql
+          encoding: unicode
+          database: blog_test
+          pool: 5
+          username: pguser
+          password:
 
 
-#### Next, create the initial database with the rake db:create command in the console:
+1. Next, create the initial database with the rake db:create command in the console:
 
     $ bundle exec rake db:create
     $ rails s
 
-#### Should be up and running at: 
+1. Should be up and running at: 
 
     http://localhost:3000/
 
@@ -95,7 +91,7 @@ Add the files listed to the Gemfile (see Gemfile)
 
 Set up *.ruby-gemset* and **.ruby-version** files with `name_your_gemset` and the latest stable version of ruby (something like `2.0.0-p247`), respectively.
 
-#### Dynamically generate a secret token in *config/initializers/secret_token.rb*. See the [*Ruby on Rails Tutorial*](http://ruby.railstutorial.org/book/ruby-on-rails-tutorial#cha-static_pages) for more info:
+1. Dynamically generate a secret token in *config/initializers/secret_token.rb*. See the [*Ruby on Rails Tutorial*](http://ruby.railstutorial.org/book/ruby-on-rails-tutorial#cha-static_pages) for more info:
 
     require 'securerandom'
 
@@ -114,9 +110,9 @@ Set up *.ruby-gemset* and **.ruby-version** files with `name_your_gemset` and th
 
     Rangular::Application.config.secret_key_base = secure_token
 
-#### note: make sure to create a .secret file at the root of your rails application and add it to the .gitignore file so that it isn't included in your public repository.
+1. note: make sure to create a .secret file at the root of your rails application and add it to the .gitignore file so that it isn't included in your public repository.
 
-#### Make our initial commit:
+1. Make our initial commit:
 
     $ git init
     $ git add .
@@ -134,14 +130,14 @@ Now deploy to heroku:
     $ git push heroku master
     $ heroku run rake db:migrate
 
-#### Install Gems
+1. Install Gems
 
-#### Install RSpec, Figaro 
+1. Install RSpec, Figaro 
 
     $ rails generate rspec:install
     $ rails generate figaro:install  
 
-##### Install Angular
+1. Install Angular
 
 Download AngularJS Stable, unzip it, place it into +vendor/assets/javascripts+ and add it as a dependency in **app/assets/javascripts/application.js** with +//= require angular+.  Also add requires for bootstrap and underscore and remove the +require_tree+ statement.
 
