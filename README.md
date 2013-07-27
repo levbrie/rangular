@@ -88,12 +88,12 @@ For more information regarding setup, see {Adam Anderson's blog post}[http://asa
 
     http://localhost:3000/
 
-Disable Turbolinks by removing +data-turbolinks-track+ from **app/views/layouts/application.html.erb** and +//= require turbolinks+ from **app/assets/javascripts/application.js**
+Disable Turbolinks by removing `data-turbolinks-track` from **app/views/layouts/application.html.erb** and `//= require turbolinks` from **app/assets/javascripts/application.js**
 
 
-#### Add the files listed to the Gemfile (see Gemfile)
+Add the files listed to the Gemfile (see Gemfile)
 
-#### Set up *.ruby-gemset* and **.ruby-version** files with **name_your_gemset** and the latest stable version of ruby (something like **2.0.0-p247**), respectively.
+Set up *.ruby-gemset* and **.ruby-version** files with `name_your_gemset` and the latest stable version of ruby (something like `2.0.0-p247`), respectively.
 
 #### Dynamically generate a secret token in *config/initializers/secret_token.rb*. See the [*Ruby on Rails Tutorial*](http://ruby.railstutorial.org/book/ruby-on-rails-tutorial#cha-static_pages) for more info:
 
