@@ -18,6 +18,7 @@ gem 'haml-rails'
 # ASSET HANDLING
 gem 'sass-rails', '~> 4.0.0'
 gem 'coffee-rails', '~> 4.0.0'				# Use CoffeeScript for .js.coffee assets and views
+gem 'less-rails'
 gem 'twitter-bootstrap-rails'					# Use the LESS version for better compatibility with Angular app
 gem 'uglifier', '>= 1.3.0'						# Use Uglifier as compressor for JavaScript assets
 

@@ -82,7 +82,7 @@ For more information regarding setup, see {Adam Anderson's blog post}[http://asa
 
 You should now be up and running at (http://localhost:3000/)
 
-14. Disable Turbolinks by removing `data-turbolinks-track` from **app/views/layouts/application.html.erb** and `//= require turbolinks` from **app/assets/javascripts/application.js**
+14. Disable Turbolinks by removing `data-turbolinks-track` from **app/views/layouts/application.html.erb** and `//= require turbolinks` from **app/assets/javascripts/application.js**.  I also like to add in the controller name and action to the class of the body for a quick and dirty way to add styling and js functionality dynamically to pages: `<body class="<%= controller_name %> <%= action_name %>">` (I think I may have gotten this technique from [*Jason Johnson*](http://postpostmodern.com/instructional/a-body-with-class/)).
 
 
 15. Add the files listed to the Gemfile (see Gemfile)
@@ -91,7 +91,7 @@ You should now be up and running at (http://localhost:3000/)
 
 17. Dynamically generate a secret token in *config/initializers/secret_token.rb*. See the [*Ruby on Rails Tutorial*](http://ruby.railstutorial.org/book/ruby-on-rails-tutorial#cha-static_pages) for more info:
 
-        ````ruby
+        ```ruby
         require 'securerandom'
 
         def secure_token
@@ -108,7 +108,7 @@ You should now be up and running at (http://localhost:3000/)
         end
 
         Rangular::Application.config.secret_key_base = secure_token
-        ````
+        ```
 
     note: make sure to create a .secret file at the root of your rails application and add it to the .gitignore file so that it isn't included in your public repository.
 
@@ -161,14 +161,9 @@ Installing Gems
 
     If you can't, first run `$ bundle install` again to install all current gems in the Gemfile.  Now run `$ bundle outdated` to find outdated gems and update those gems, using github urls if necessary. 
 
-source 'https://rubygems.org'
+3. Install Bootstrap - Follow Step05: Installing and Setting Up Bootstrap from the tutorial
 
-# Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '4.0.0'
-gem 'pg'                              # Use postgresql as the database for Active Record
 
-# SECURITY, ENCRYPTION, AUTHENTICATION, AUTHORIZATION
-gem 'bcrypt-ruby'                     # adds state-of-the-art encryption hash function
 gem 'devise'                          # authentication
 gem 'simple_form'                     # form generation built to work with devise
 gem 'cancan'
