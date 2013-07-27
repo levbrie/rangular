@@ -4,7 +4,7 @@ This is a framework designed for building a full-fledged Rails app together with
 by [Lev Brie](http://github.com/levbrie).
 
 Initial Setup 
--------------
+--------------------------------------------------------------------------------
 
 For more information regarding setup, see {Adam Anderson's blog post}[http://asanderson.org/posts/2013/06/03/bootstrapping-angular-rails-part-1.html] and Michael Hartl's {Ruby on Rails Tutorial}[http://ruby.railstutorial.org/ruby-on-rails-tutorial-book?version=4.0]
 
@@ -75,62 +75,66 @@ For more information regarding setup, see {Adam Anderson's blog post}[http://asa
           password:
 
 
-1. Next, create the initial database with the rake db:create command in the console:
+13. Next, create the initial database with the rake db:create command in the console:
 
-    $ bundle exec rake db:create
-    $ rails s
+        $ bundle exec rake db:create
+        $ rails s
 
-1. Should be up and running at: 
+You should now be up and running at (http://localhost:3000/)
 
-    http://localhost:3000/
-
-Disable Turbolinks by removing `data-turbolinks-track` from **app/views/layouts/application.html.erb** and `//= require turbolinks` from **app/assets/javascripts/application.js**
+14. Disable Turbolinks by removing `data-turbolinks-track` from **app/views/layouts/application.html.erb** and `//= require turbolinks` from **app/assets/javascripts/application.js**
 
 
-Add the files listed to the Gemfile (see Gemfile)
+15. Add the files listed to the Gemfile (see Gemfile)
 
-Set up *.ruby-gemset* and **.ruby-version** files with `name_your_gemset` and the latest stable version of ruby (something like `2.0.0-p247`), respectively.
+16. Set up *.ruby-gemset* and **.ruby-version** files with `name_your_gemset` and the latest stable version of ruby (something like `2.0.0-p247`), respectively.
 
-1. Dynamically generate a secret token in *config/initializers/secret_token.rb*. See the [*Ruby on Rails Tutorial*](http://ruby.railstutorial.org/book/ruby-on-rails-tutorial#cha-static_pages) for more info:
+17. Dynamically generate a secret token in *config/initializers/secret_token.rb*. See the [*Ruby on Rails Tutorial*](http://ruby.railstutorial.org/book/ruby-on-rails-tutorial#cha-static_pages) for more info:
 
-    require 'securerandom'
+        require 'securerandom'
 
-    def secure_token
-      token_file = Rails.root.join('.secret')
-      if File.exist?(token_file)
-        # Use the existing token.
-        File.read(token_file).chomp
-      else
-        # Generate a new token and store it in token_file.
-        token = SecureRandom.hex(64)
-        File.write(token_file, token)
-        token
-      end
-    end
+        def secure_token
+          token_file = Rails.root.join('.secret')
+          if File.exist?(token_file)
+            # Use the existing token.
+            File.read(token_file).chomp
+          else
+            # Generate a new token and store it in token_file.
+            token = SecureRandom.hex(64)
+            File.write(token_file, token)
+            token
+          end
+        end
 
-    Rangular::Application.config.secret_key_base = secure_token
+        Rangular::Application.config.secret_key_base = secure_token
 
-1. note: make sure to create a .secret file at the root of your rails application and add it to the .gitignore file so that it isn't included in your public repository.
+    note: make sure to create a .secret file at the root of your rails application and add it to the .gitignore file so that it isn't included in your public repository.
 
-1. Make our initial commit:
+18. Make our initial commit:
 
     $ git init
     $ git add .
     $ git commit -m "Initial commit"
 
-[*Create a new repo on Github*](https://github.com/new):
+19. [*Create a new repo on Github (by clicking here)*](https://github.com/new)
 
-    $ git remote add origin https://github.com/<username>/rangular.git
-    $ git push -u origin master
+    *Note: Make sure not to check "Initialize this repository with a README" since we've already done that*
 
-You can find the current application at (https://github.com/levbrie/rangular).
-Now deploy to heroku:
+20. After creating your repository, copy the generated url and add it as the remote:
 
-    $ heroku create
-    $ git push heroku master
-    $ heroku run rake db:migrate
+        $ git remote add origin https://github.com/<username>/rangular.git
+        $ git push -u origin master
 
-1. Install Gems
+    Note: You can find the current application at (https://github.com/levbrie/rangular).
+
+21. Now deploy to heroku:
+
+        $ heroku create
+        $ git push heroku master
+        $ heroku run rake db:migrate
+
+Installing Gems
+--------------------------------------------------------------------------------
 
 1. Install RSpec, Figaro 
 
