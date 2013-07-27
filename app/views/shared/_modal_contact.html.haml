@@ -1,0 +1,15 @@
+/ modal contact partial - we prefer to identify first by function in partial names
+#contactModal.modal.hide.fade{"aria-hidden" => "true", "aria-labelledby" => "contactModalLabel", :role => "dialog", :tabindex => "-1"}
+  .modal-body
+    = link_to "", root_path, class: 'logo'
+    %h5 CONTACT RANGULAR
+    %form.form-horizontal
+      .control-group
+        .controls
+          %input#inputName{:placeholder => "Input Your Full Name", :type => "text"}/
+      .control-group
+        .controls
+          %input#inputEmail{:placeholder => "Your Email", :type => "text"}/
+      .btn-wrapper
+        %button.btn.btn-primary{:type => "submit"} Send
+    %button#close.btn{"data-dismiss" => "modal"} Close

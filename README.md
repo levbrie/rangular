@@ -163,6 +163,9 @@ Installing Gems
 
 3. Install Bootstrap - Follow Step05: Installing and Setting Up Bootstrap from the tutorial
 
+4. Install SimpleForm:
+
+
 
 gem 'devise'                          # authentication
 gem 'simple_form'                     # form generation built to work with devise

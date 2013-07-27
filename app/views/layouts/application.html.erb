@@ -9,8 +9,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body class="<%= controller_name %> <%= action_name %>">
+	<%= render 'layouts/header' %>
+	<%= render 'shared/modal_contact' %>
 	<div class="container-fluid">
-		<%= render 'layouts/nav' %>
+		<%= render 'shared/errors' %>
 		<%= yield %>		
 	</div>
 </body>
