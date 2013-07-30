@@ -226,6 +226,8 @@ Installing Gems
 
 9. Set up the testing environment - see [*Step09: Setting Up the Testing Environment*](https://github.com/levbrie/rangular/wiki/Step09:-Setting-Up-the-Testing-Environment) in the wiki.
 
+10. Set up 10. Set up Authorization with CanCan and Rolify - see [*Step10: Setting Up Authorization Using CanCan and Rolify*](https://github.com/levbrie/rangular/wiki/Step10:-Setting-Up-Authorization-Using-CanCan-and-Rolify)
+
 
   
 
