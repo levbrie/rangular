@@ -31,9 +31,6 @@ gem 'annotate'												# annotation for Rails models, etc.
 # TESTING 
 group :development, :test do
 	gem 'rspec-rails' 									# BDD Testing Framework (behavior-driven development)
-	gem 'guard'
-	gem 'guard-livereload'
-	gem 'guard-rspec'										# auto specs launcher on file modification
 	gem 'capybara' 											# acceptance test framework (simulates user interaction)
 	gem 'launchy'												# helper for launching cross-platform apps
 	gem 'database_cleaner' 							# strategies for cleaning db, ensures clean state for testing
@@ -42,10 +39,13 @@ group :development, :test do
 	gem 'rb-fsevent', :require => false	# system-dependent gems for running Guard and getting Growl notifications
 	gem 'growl'                         # growlnotify bindings for ruby
 	gem 'spork'													# DRb server for testing frameworks
-	gem 'guard-spork' 									# auto manage and reload DRb servers on file mod
 	gem 'faker'													# allows us to make semi-realistic users
 	gem 'factory_girl_rails'					 	# factories creating objects in db for testing
 	gem 'letter_opener'									# preview email in the browser instead of sending
+	gem 'guard'													# CL tool for handling events on filesystem modifications
+	gem 'guard-livereload'							# live reloading of browser
+	gem 'guard-rspec'										# auto specs launcher on file modification
+	gem 'guard-spork' 									# auto manage and reload DRb servers on file mod
 end 
 
 # JQUERY

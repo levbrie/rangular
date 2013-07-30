@@ -147,28 +147,6 @@ Optional Creation of Static Pages
 
         $ rails generate controller StaticPages home --no-test-framework
 
-Installing Gems
----------------
-
-
-1. Install RSpec (should already be in your Gemfile)
-
-        $ rails generate rspec:install
-
-    If you wish to create tests for see "Step04: First Static Page Test" in the wiki
-
-2. Before installing additional gems, make sure that your server is up and working and you can visit the home page (this is unlikely)
-
-    If you can't, first run `$ bundle install` again to install all current gems in the Gemfile.  Now run `$ bundle outdated` to find outdated gems and update those gems, using github urls if necessary. 
-
-3. Install Bootstrap - Follow [*Step05: Installing and Setting Up Bootstrap from the tutorial*](https://github.com/levbrie/rangular/wiki/Step05:-Installing-and-Setting-Up-Bootstrap)
-
-4. Install SimpleForm: Make sure you have `gem 'simple_form'` in your Gemfile (if not, as always, add it and bundle).  Then on the terminal run `$ rails g simple_form:install --bootstrap` (or leave out the optional bootstrap argument if you want simple_form to generate forms without including the default bootstrap theming).  We'll try out the themes and test functionality once we generate our user model.
-
-7. Install Devise: Follow [*Step07: Adding Devise*](https://github.com/levbrie/rangular/wiki/Step07:-Adding-Devise) in the wiki.
-
-8. Install Figaro: Make sure you have `gem 'figaro'` in your Gemfile, then `rails g figaro:install` and simply follow the commented out examples to create private environment variables, i.e. `PUSHER_APP_ID: "2954"`.  This can then be accessed throughout the app using `ENV["PUSHER_APP_ID"]`, and key/value pairs can be safely set using `Pusher.app_id = ENV["PUSHER_APP_ID"]` in the appropriate configuration file.  Additional documentation is available for using a rake task to configure Heroku from the same application.yml file, but this hasn't worked for me so we simply add to Heroku using a single line of key/value pairs.
-
 ## Setup Email in Development and Production
 --------------------------------------------
 
@@ -224,10 +202,35 @@ Installing Gems
 
 3. If you followed the optional step in the Devise setup to generate Devise's views, you'll find the mailer templates in the `views/users/mailer` directory.  Messages are defined, in `config/locales/devise.en.yml`.  Taken together, you can do a lot of customization just in those two places. 
 
+
+Installing Gems
+---------------
+
+
+1. Install RSpec (should already be in your Gemfile)
+
+        $ rails generate rspec:install
+
+    If you wish to create tests for see "Step04: First Static Page Test" in the wiki
+
+2. Before installing additional gems, make sure that your server is up and working and you can visit the home page (this is unlikely)
+
+    If you can't, first run `$ bundle install` again to install all current gems in the Gemfile.  Now run `$ bundle outdated` to find outdated gems and update those gems, using github urls if necessary. 
+
+3. Install Bootstrap - Follow [*Step05: Installing and Setting Up Bootstrap from the tutorial*](https://github.com/levbrie/rangular/wiki/Step05:-Installing-and-Setting-Up-Bootstrap)
+
+4. Install SimpleForm: Make sure you have `gem 'simple_form'` in your Gemfile (if not, as always, add it and bundle).  Then on the terminal run `$ rails g simple_form:install --bootstrap` (or leave out the optional bootstrap argument if you want simple_form to generate forms without including the default bootstrap theming).  We'll try out the themes and test functionality once we generate our user model.
+
+7. Install Devise: Follow [*Step07: Adding Devise*](https://github.com/levbrie/rangular/wiki/Step07:-Adding-Devise) in the wiki.
+
+8. Install Figaro: Make sure you have `gem 'figaro'` in your Gemfile, then `rails g figaro:install` and simply follow the commented out examples to create private environment variables, i.e. `PUSHER_APP_ID: "2954"`.  This can then be accessed throughout the app using `ENV["PUSHER_APP_ID"]`, and key/value pairs can be safely set using `Pusher.app_id = ENV["PUSHER_APP_ID"]` in the appropriate configuration file.  Additional documentation is available for using a rake task to configure Heroku from the same application.yml file, but this hasn't worked for me so we simply add to Heroku using a single line of key/value pairs.
+
+
 9. Set up the testing environment - see [*Step09: Setting Up the Testing Environment*](https://github.com/levbrie/rangular/wiki/Step09:-Setting-Up-the-Testing-Environment) in the wiki.
 
 10. Set up 10. Set up Authorization with CanCan and Rolify - see [*Step10: Setting Up Authorization Using CanCan and Rolify*](https://github.com/levbrie/rangular/wiki/Step10:-Setting-Up-Authorization-Using-CanCan-and-Rolify)
 
+11. Optimize Commands and Testing Speed: [*Step11: Optimizing Rails Commands and Test Runners*](https://github.com/levbrie/rangular/wiki/Step11:-Optimizing-Rails-Commands-and-Test-Runners)
 
   
 
