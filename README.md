@@ -232,6 +232,10 @@ Installing Gems
 
 11. Optimize Commands and Testing Speed: [*Step11: Optimizing Rails Commands and Test Runners*](https://github.com/levbrie/rangular/wiki/Step11:-Optimizing-Rails-Commands-and-Test-Runners)
 
-  
+### Creating a Versioned, RESTful API
+
+12. See the wiki: [*Step12: Setting Up a Versioned RESTful API*](https://github.com/levbrie/rangular/wiki/Step12:-Setting-Up-A-Versioned-RESTful-API)
+
+
 
 
