@@ -10,8 +10,8 @@ gem 'simple_form'											# form generation built to work with devise
 gem 'devise'													# authentication
 gem 'cancan'													# authorization lib restricting user access to resources
 gem 'rolify'													# for easy role creation
+gem 'doorkeeper', :git => 'https://github.com/applicake/doorkeeper.git'											# Oauth 2 provider for securing API
 
-# TEMPLATES
 gem 'haml'
 gem 'haml-rails'
 

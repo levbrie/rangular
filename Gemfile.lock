@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/applicake/doorkeeper.git
+  revision: be38a35c23d4fecfe3c2b0da2c7b96d36ff9f78d
+  specs:
+    doorkeeper (0.6.7)
+      railties (>= 3.1)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -188,7 +195,7 @@ GEM
       rack (>= 0.9.1)
     rack-test (0.6.2)
       rack (>= 1.0)
-    railroady (1.1.0)
+    railroady (1.1.1)
     rails (4.0.0)
       actionmailer (= 4.0.0)
       actionpack (= 4.0.0)
@@ -295,6 +302,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   database_cleaner
   devise
+  doorkeeper!
   email_spec
   factory_girl_rails
   faker

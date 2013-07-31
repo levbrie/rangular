@@ -1,10 +1,20 @@
 Rangular::Application.routes.draw do
+  namespace :api, defaults: {format: 'json'} do
+    # pass in version # through scope so it can be included in an Accept Header
+    # and not the URL
+    scope module: :v1 do
+      resources :posts
+    end
+  end
   
   devise_for :users
   get "users/index"
   get "users/show"
   get "static_pages/home"
   root to: 'static_pages#home'
+
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
