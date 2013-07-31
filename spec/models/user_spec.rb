@@ -15,6 +15,11 @@ describe User do
     User.create!(@user_attrs)
   end
 
+  it "should respond to posts" do
+    @user = User.new(@user_attrs)
+    @user.should respond_to(:posts)
+  end
+
   it "should require an email address" do
     blank_email_user = User.new(@user_attrs.merge(:email => ""))
     blank_email_user.should_not be_valid
