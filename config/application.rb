@@ -27,5 +27,8 @@ module Rangular
 
     # FOR DEVISE ON HEROKU!!!
     config.assets.initialize_on_precompile = false
+
+    # To avoid conflicts between Doorkeeper and ActiveRecord
+    config.active_record.whitelist_attributes = false
   end
 end

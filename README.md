@@ -234,7 +234,9 @@ Installing Gems
 
 ### Creating a Versioned, RESTful API
 
-12. See the wiki: [*Step12: Setting Up a Versioned RESTful API*](https://github.com/levbrie/rangular/wiki/Step12:-Setting-Up-A-Versioned-RESTful-API)
+12. Set up a Post model for testing purposes: [*Step12: Creating a Posts Model for Testing and Demo*](https://github.com/levbrie/rangular/wiki/Step12:-Creating-a-Posts-Model-for-Testing-and-Demo)
+
+13. See the wiki: [*Step13: Setting Up a Versioned RESTful API*](https://github.com/levbrie/rangular/wiki/Step13:-Setting-Up-a-Versioned-RESTful-API)
 
 
 
