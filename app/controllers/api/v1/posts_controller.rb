@@ -8,11 +8,11 @@ module Api
 			end
 
 			def create
-				respond_with Post.create(params[:post])
+				respond_with Post.create(post_params)
 			end
 
       def show
-        respond_with Post.find(params[:id])
+        respond_with Post.find(post_params)
       end
 
       def update 
@@ -21,6 +21,11 @@ module Api
 
       def destroy
         respond_with Post.destroy(params[:id])
+      end
+
+      private 
+      def post_params
+        params.require(:post).permit(:name, :content)
       end
 		end
 	end

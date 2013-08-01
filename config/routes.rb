@@ -1,5 +1,5 @@
 Rangular::Application.routes.draw do
-  use_doorkeeper
+  # use_doorkeeper
   namespace :api, defaults: {format: 'json'} do
     # pass in version # through scope so it can be included in an Accept Header
     # and not the URL
@@ -14,7 +14,8 @@ Rangular::Application.routes.draw do
   get "static_pages/home"
   root to: 'static_pages#home'
 
-
+  get "api/ping" => "application#ping"
+  resources :posts, path: 'api/posts'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
