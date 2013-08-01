@@ -1,5 +1,5 @@
 ## Rails Framework for Integrating Rails with AngularJS
-# THIS IS A WORK IN PROGRESS AND ANGULAR HAS NOT YET BEEN IMPLEMENTED
+
 This is a framework designed for building a full-fledged Rails app together with a versioned, RESTful API for communicating with a complete, scalable, modular AngularJS application.  The code can be found at the [*Rangular Framework*](http://github.com/levbrie/rangular)
 by [Lev Brie](http://github.com/levbrie).
 
