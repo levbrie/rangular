@@ -5,6 +5,7 @@ var lrSnippet = require('connect-livereload')({ port: LIVERELOAD_PORT });
 var mountFolder = function (connect, dir) {
   return connect.static(require('path').resolve(dir));
 };
+// @lev expose the proxy function to use in the middleware
 var proxySnippet = require('grunt-connect-proxy/lib/utils').proxyRequest;
 
 // # Globbing
@@ -17,13 +18,13 @@ module.exports = function (grunt) {
   // load all grunt tasks
   require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
 
-  // load the proxy.
+  // @lev enable the grunt-connect-proxy http proxy plugin
   grunt.loadNpmTasks('grunt-connect-proxy');
   
   // configurable paths
   var yeomanConfig = {
     app: 'app',
-    dist: 'dist'
+    dist: '../public'         // @lev changed from dist: 'dist'
   };
 
   try {
@@ -63,10 +64,19 @@ module.exports = function (grunt) {
         // Change this to '0.0.0.0' to access the server from outside.
         hostname: 'localhost'
       },
+      // @lev adding in proxies to connect to our rails app through the restful api
+      proxies: [
+          {
+              context: '/api',
+              host: 'localhost',
+              port: 3000
+          }
+      ],
       livereload: {
         options: {
           middleware: function (connect) {
             return [
+              proxySnippet, // @lev middleware call from connect option middleware hook
               lrSnippet,
               mountFolder(connect, '.tmp'),
               mountFolder(connect, yeomanConfig.app)
@@ -321,13 +331,14 @@ module.exports = function (grunt) {
   });
 
   grunt.registerTask('server', function (target) {
-    if (target === 'dist') {
+    if (target === 'dist') {      // @lev not sure if this needs to be changed to ../public folder
       return grunt.task.run(['build', 'open', 'connect:dist:keepalive']);
     }
 
     grunt.task.run([
       'clean:server',
       'concurrent:server',
+      'configureProxies',         // configure proxies before connecting
       'connect:livereload',
       'open',
       'watch'
