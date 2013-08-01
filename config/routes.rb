@@ -1,5 +1,5 @@
 Rangular::Application.routes.draw do
-  # use_doorkeeper
+  use_doorkeeper
   namespace :api, defaults: {format: 'json'} do
     # pass in version # through scope so it can be included in an Accept Header
     # and not the URL
